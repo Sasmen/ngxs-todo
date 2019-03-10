@@ -136,5 +136,8 @@
       }
     }
   },
-  "defaultProject": "todo"
+  "defaultProject": "todo",
+  "cli": {
+    "defaultCollection": "@ngxs/schematics"
+  }
 }
