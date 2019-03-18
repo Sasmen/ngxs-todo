@@ -1,13 +1,15 @@
 <div class="todo">
-    <h2 class="todo__header">
-        {{list.name}}
-    </h2>
-    <div class="todo__input">
-        <app-new-task (createChange)="create($event)"></app-new-task>
-    </div>
-    <div class="todo__list">
-        <app-task-list [list]="items$ | async" (removeChange)="remove($event)"
-                       (completeChange)="complete($event)"></app-task-list>
-    </div>
-    <pre>{{list|json}}</pre>
+    XXX
+    <pre>{{list$ | async | json}}</pre>
+    <!--<h2 class="todo__header">-->
+        <!--{{(list$ | async).name}}-->
+    <!--</h2>-->
+    <!--<div class="todo__input">-->
+        <!--<app-new-task (createChange)="create($event)"></app-new-task>-->
+    <!--</div>-->
+    <!--<div class="todo__list">-->
+        <!--<app-task-list [list]="list$ | async" (removeChange)="remove($event)"-->
+                       <!--(completeChange)="complete($event)"></app-task-list>-->
+    <!--</div>-->
+    <!--<pre>{{(list$ | async)|json}}</pre>-->
 </div>
