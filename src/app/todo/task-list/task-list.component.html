@@ -1,0 +1,7 @@
+<ul>
+    <li *ngFor="let item of list" [class.completed]="item.completed">
+        {{ item.name }}
+        <button (click)="remove(item.id)">Usuń</button>
+        <button *ngIf="!item.completed" (click)="complete(item.id)">Zakończ</button>
+    </li>
+</ul>
