@@ -1,0 +1,22 @@
+.app__menu {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: #1b1b1b;
+	right: 0;
+	border-bottom: 1px solid #353535;
+}
+
+.app__menu-container {
+	max-width: 1024px;
+	margin: 0 auto;
+	display: block;
+	padding: 0 32px;
+}
+
+.app__content {
+	max-width: 1024px;
+	margin: 0 auto;
+	display: block;
+	padding: 64px 32px 32px;
+}

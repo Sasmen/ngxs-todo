@@ -1,0 +1,37 @@
+.todo {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(258px, 1fr));
+	grid-gap: 16px;
+}
+
+.todo__card {
+	display: block;
+	background: #1d1d1d;
+	border: none;
+	border-radius: 8px;
+	color: white;
+	cursor: pointer;
+	transition: 0.2s all;
+	padding: 24px;
+	text-align: left;
+
+	&:hover {
+		box-shadow: 0 0 32px rgba(black, 0.5);
+		background: #121212;
+	}
+	&:focus {
+		outline: none;
+	}
+}
+
+.todo__card-title {
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 16px;
+	display: block;
+}
+
+.todo__card-details {
+	font-size: 16px;
+	display: block;
+}

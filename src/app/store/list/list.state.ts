@@ -1,5 +1,8 @@
-import { createSelector, Selector, State } from '@ngxs/store';
+import { Action, createSelector, Selector, State, StateContext } from '@ngxs/store';
+import { append, patch, removeItem, updateItem } from '@ngxs/store/operators';
+import { TodoRemove } from '../task/task.actions';
 import { Task, TaskState, TaskStateModel } from '../task/task.state';
+import { AssignTaskToListAction } from './list.actions';
 
 export interface ListStateModel {
 	items: List[];
@@ -49,8 +52,7 @@ export class ListState {
 					return task.id === taskId;
 				}));
 			});
-			foundList.items = items;
-			return foundList;
+			return { ...foundList, items };
 		});
 	}
 
@@ -62,10 +64,28 @@ export class ListState {
 		});
 	}
 
-	// @Action(ListAction)
-	// public add(ctx: StateContext<ListStateModel>, {payload}: ListAction) {
-	//     const stateModel = ctx.getState();
-	//     stateModel.items = [...stateModel.items, payload];
-	//     ctx.setState(stateModel);
-	// }
+	@Action(AssignTaskToListAction)
+	public assignTaskToList(ctx: StateContext<ListStateModel>, { payload }: AssignTaskToListAction) {
+		ctx.setState(
+			patch({
+				items: updateItem(
+					(list: List) => list.id === payload.listId,
+					patch({ _items: append([payload.taskId]) }),
+				),
+			}),
+		);
+	}
+
+
+	@Action(TodoRemove)
+	public remove(ctx: StateContext<ListStateModel>, { payload }: TodoRemove) {
+		ctx.setState(
+			patch({
+				items: updateItem(
+					(list: List) => list._items.indexOf(payload.id) > -1,
+					patch({ _items: removeItem((taskId: string) => taskId === payload.id) }),
+				),
+			}),
+		);
+	}
 }

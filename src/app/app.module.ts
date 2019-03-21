@@ -9,6 +9,7 @@ import { ListComponent } from './todo/list/list.component';
 import { NewTaskComponent } from './todo/new-task/new-task.component';
 import { TaskListComponent } from './todo/task-list/task-list.component';
 import { TodoComponent } from './todo/todo.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
 	declarations: [
@@ -17,6 +18,7 @@ import { TodoComponent } from './todo/todo.component';
 		NewTaskComponent,
 		TaskListComponent,
 		ListComponent,
+		MenuComponent,
 	],
 	imports: [
 		BrowserModule,

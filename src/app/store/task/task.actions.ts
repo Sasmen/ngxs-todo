@@ -1,22 +1,34 @@
-import { Task } from './task.state';
-
-export class TodoAddAction {
+export class TodoAdd {
 	public static readonly type = '[Todo] Add task';
 
-	constructor(public payload: Task) {
+	constructor(public payload: { name: string, listId: string }) {
 	}
 }
 
-export class TodoRemoveAction {
+export class TodoRemove {
 	public static readonly type = '[Todo] Remove task';
 
-	constructor(public payload: number) {
+	constructor(public payload: {id: string}) {
 	}
 }
 
-export class TodoCompleteAction {
+export class TodoComplete {
 	public static readonly type = '[Todo] Complete task';
 
-	constructor(public payload: number) {
+	constructor(public payload: {id: string}) {
+	}
+}
+
+export class TodoUncomplete {
+	public static readonly type = '[Todo] Uncomplete task';
+
+	constructor(public payload: {id: string}) {
+	}
+}
+
+export class TodoToggle {
+	public static readonly type = '[Todo] Toggle task';
+
+	constructor(public payload: {id: string}) {
 	}
 }

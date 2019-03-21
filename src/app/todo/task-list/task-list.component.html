@@ -1,7 +1,9 @@
-<ul>
-    <li *ngFor="let item of list" [class.completed]="item.completed">
-        {{ item.name }}
-        <button (click)="remove(item.id)">Usuń</button>
-        <button *ngIf="!item.completed" (click)="complete(item.id)">Zakończ</button>
-    </li>
-</ul>
+<div *ngFor="let item of list" [class.task-list__element--completed]="item.completed" class="task-list__element">
+	<div class="task-list__element-toggle" (click)="toggle(item.id)"></div>
+	<div class="task-list__element-body">
+		{{ item.name }}
+	</div>
+	<div class="task-list__element-options">
+		<button (click)="remove(item.id)" class="task-list__element-link">Usuń</button>
+	</div>
+</div>

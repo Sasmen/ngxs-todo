@@ -1,3 +1,11 @@
-<div *ngFor="let list of lists$ | async">
-	<button [routerLink]="['list', list.id]">{{list.name}}</button>
+<h2>Twoje listy zadań</h2>
+<div class="todo">
+	<button *ngFor="let list of lists$ | async" [routerLink]="['list', list.id]" class="todo__card">
+		<span class="todo__card-title">
+			{{list.name}}
+		</span>
+		<div class="todo__card-details">
+			Lista zadań: {{list._items.length}}
+		</div>
+	</button>
 </div>

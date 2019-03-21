@@ -1,2 +1,5 @@
-<input type="text" [(ngModel)]="newTask" (keyup.enter)="create()">
-<button (click)="create()">Dodaj</button>
+<div class="field">
+	<input (keyup.enter)="create()" [(ngModel)]="newTask" class="field__input" placeholder="Dodaj nowe zadanie..."
+			 type="text">
+	<button (click)="create()" class="field__btn">+ Dodaj</button>
+</div>

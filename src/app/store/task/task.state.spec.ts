@@ -1,7 +1,7 @@
 import { TestBed, async } from '@angular/core/testing';
 import { NgxsModule, Store } from '@ngxs/store';
 import { TaskState, TaskStateModel } from './task.state';
-import { TodoAddAction } from './task.actions';
+import { TodoAdd } from './task.actions';
 
 describe('Todo store', () => {
   let store: Store;
@@ -16,7 +16,7 @@ describe('Todo store', () => {
     const expected: TaskStateModel = {
       items: ['item-1']
     };
-    store.dispatch(new TodoAddAction('item-1'));
+    store.dispatch(new TodoAdd('item-1'));
     const actual = store.selectSnapshot(TaskState.getState);
     expect(actual).toEqual(expected);
   });
